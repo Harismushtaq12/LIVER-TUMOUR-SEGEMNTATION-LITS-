@@ -3,6 +3,7 @@ This project is a liver tumor segmentation pipeline built for the LITS (Liver Tu
 
 📁 Dataset
 The dataset used in this project comes from the LITS Challenge hosted on CodaLab.
+
 🔗 Dataset access link: https://competitions.codalab.org/competitions/17094
 ⚠️ You will need to create an account and request access to download the dataset from CodaLab.
 
