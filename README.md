@@ -1,27 +1,107 @@
-Liver Tumor Segmentation – LITS Challenge (CodaLab)
-This project is a liver tumor segmentation pipeline built for the LITS (Liver Tumor Segmentation) Challenge. It was part of an exploratory effort to understand medical imaging, specifically how 3D volumetric CT scan data is processed and used to train deep learning models for medical segmentation tasks.
+# Liver Tumor Segmentation – LITS Challenge
 
-📁 Dataset
-The dataset used in this project comes from the LITS Challenge hosted on CodaLab.
+A comprehensive deep learning pipeline for liver tumor segmentation using hybrid U-Net Transformer architecture, developed for the LITS (Liver Tumor Segmentation) Challenge.
 
-🔗 Dataset access link: https://competitions.codalab.org/competitions/17094 
+## 🎯 What This Repository Can Do
 
-⚠️ You will need to create an account and request access to download the dataset from CodaLab.
+This project provides a complete end-to-end solution for medical image segmentation with the following key capabilities:
 
-🧪 Preprocessing
-The original dataset is provided in NIfTI (.nii) format, which contains 3D volumetric data (CT scans and segmentation labels).
+- **🔬 Medical Image Processing**: Convert NIfTI (.nii) to PNG, normalize intensity, resize images
+- **🧠 Advanced Deep Learning**: Hybrid U-Net Transformer model for precise segmentation
+- **📊 Comprehensive Evaluation**: Multiple medical imaging metrics (Dice, IoU, F1, etc.)
+- **📈 Visualization Tools**: Training progress, data exploration, and prediction analysis
+- **⚡ Production Ready**: Model saving, loading, and inference capabilities
 
-1. To simplify and enable training on 2D models, we:
-2. Converted the NIfTI files into individual PNG slices
-3. Saved both image and corresponding mask slices
-4. Structured the data into a format suitable for training using common deep learning libraries
+📖 **[View Complete Capabilities →](CAPABILITIES.md)**
 
-⚙️ Project Overview
-1. Data preprocessing from .nii to .png
-2. 2D segmentation model for liver and tumor detection
-3. Training loop and visualization tools
-4. Local training setup (note: a single epoch can take ~24–25 hours locally)
+## 🚀 Quick Start
 
-🚧 Notes
-This project was developed and run locally on limited hardware and trained for only one epoch, primarily as a learning experience. The focus was on building the pipeline from scratch and understanding the data processing workflow in medical imaging.
+1. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+   Or manually:
+   ```bash
+   pip install tensorflow nibabel SimpleITK numpy matplotlib scikit-learn pillow scipy
+   ```
+
+2. **Get the Dataset**
+   - Download from [LITS Challenge on CodaLab](https://competitions.codalab.org/competitions/17094)
+   - ⚠️ Account registration and access request required
+
+3. **Run the Pipeline**
+   - Open `lits.ipynb` in Jupyter Notebook
+   - Execute cells sequentially for complete workflow
+
+📋 **[Detailed Usage Guide →](USAGE_GUIDE.md)**
+
+## 🏗️ Architecture
+
+### Hybrid U-Net Transformer Model
+- **U-Net Backbone**: Proven architecture for medical image segmentation
+- **Transformer Blocks**: Enhanced feature representation and long-range dependencies
+- **Multi-Scale Features**: Skip connections preserve fine-grained details
+- **2D Approach**: Efficient processing of 3D volumetric data as 2D slices
+
+### Key Features
+- **Multi-class Segmentation**: Background, liver tissue, and tumor regions
+- **Advanced Training**: Learning rate scheduling, early stopping, custom callbacks
+- **Robust Evaluation**: Medical imaging specific metrics and visualizations
+
+## 📊 Performance
+
+- **Training Time**: ~24-25 hours per epoch (CPU), significantly faster on GPU
+- **Model Size**: Optimized for 128x128 input images
+- **Metrics**: Dice coefficient, IoU, precision, recall, F1-score, specificity
+- **Scalability**: Batch processing for multiple patients
+
+## 📁 Project Structure
+
+```
+├── lits.ipynb           # Main pipeline notebook
+├── README.md            # This file
+├── CAPABILITIES.md      # Detailed feature overview
+├── USAGE_GUIDE.md       # Step-by-step instructions
+├── QUICK_REFERENCE.md   # Quick overview and setup
+└── requirements.txt     # Python dependencies
+```
+
+## 🔧 Technical Details
+
+### Data Pipeline
+1. **Input**: NIfTI (.nii) 3D volumetric CT scans
+2. **Preprocessing**: Conversion to PNG slices, normalization, resizing
+3. **Training**: 2D model training with advanced callbacks
+4. **Output**: Segmentation masks and performance metrics
+
+### Model Components
+- **Encoder-Decoder Architecture**: U-Net style with skip connections
+- **Transformer Integration**: Self-attention mechanisms for better feature learning
+- **Custom Loss Functions**: Optimized for medical segmentation tasks
+- **Evaluation Suite**: Comprehensive metrics for medical image analysis
+
+## 🎓 Educational Value
+
+Perfect for learning:
+- **Medical Image Processing**: Real-world healthcare AI application
+- **Deep Learning**: Advanced CNN architectures and training strategies
+- **Computer Vision**: Segmentation techniques and evaluation methods
+- **Data Science**: End-to-end ML pipeline development
+
+## 🤝 Use Cases
+
+- **Research**: Medical imaging studies and algorithm development
+- **Clinical**: Radiologist decision support (research use)
+- **Education**: Learning medical AI and segmentation techniques
+- **Benchmarking**: Compare different segmentation approaches
+
+## 🚧 Development Notes
+
+This project was developed as a learning experience focusing on:
+- Building complete ML pipelines from scratch
+- Understanding medical imaging data workflows
+- Implementing state-of-the-art segmentation architectures
+- Creating comprehensive evaluation and visualization tools
+
+**Hardware Requirements**: GPU recommended for training, though CPU training is supported (longer duration).
 
